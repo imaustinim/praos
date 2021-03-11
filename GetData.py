@@ -1,13 +1,20 @@
-import os, csv, regex,sys
+import os
+import csv
+import regex
+import sys
 import talib
 from binance.client import Client
-import datetime, time, pytz
+import datetime
+import time
+import pytz
 import pandas as pd
 
 API_KEY = os.environ['API_KEY']
 API_SECRET = os.environ['API_SECRET']
 client = Client(API_KEY, API_SECRET)
 today = datetime.datetime.utcnow().date().strftime("%Y %m %d")
+
+
 class Symbols():
     def __init__(self, interval=str):
         self.interval = interval
@@ -32,7 +39,7 @@ class Symbols():
             writer = csv.writer(f)
             exchangeInfo = client.get_exchange_info()["symbols"]
             x = 0
-            for i in range(0,len(exchangeInfo)):
+            for i in range(0, len(exchangeInfo)):
                 symbol = exchangeInfo[i]["symbol"]
                 if filter:
                     if filter in symbol:
@@ -48,8 +55,9 @@ class Symbols():
             f.close()
             print("%s/%s symbols added" % (x, len(exchangeInfo)))
 
+
 class Data():
-    def __init__(self, symbol, interval="1d", time = "00:00:00", timezone = "UTC+0000"):
+    def __init__(self, symbol, interval="1d", time="00:00:00", timezone="UTC+0000"):
         self.beginDate = "2000 01 01"
         self.endDate = today
         self.symbol = symbol
@@ -61,10 +69,6 @@ class Data():
         self.klines = None
 
     def getData(self):
-        # if cryptdo data
-            # if data getcryptodata, else update
-        # else yahoo data
-        # else other data type
         file_name = "%s %s" % (self.symbol, self.interval.upper())
         files_list = os.listdir(self.folder)
         update = False
@@ -78,7 +82,7 @@ class Data():
             self.updateCryptoData(file_path)
         else:
             self.getCryptoData()
-        
+
     def getCryptoData(self):
         klines = client.get_historical_klines(symbol=self.symbol, interval=self.interval, start_str=self.beginDate, end_str=self.endDate, limit=2500)
         self.beginDate = datetime.datetime.utcfromtimestamp(klines[0][0] / 1000).strftime("%Y %m %d")
@@ -91,7 +95,7 @@ class Data():
             writer.writerow(k)
         f.close()
         print("%s created" % (self.file_path))
-    
+
     def updateCryptoData(self, file_path):
         dates = regex.findall(r"\d{4} \d{2} \d{2}", file_path)
         self.file_path = "%s/%s" % (self.folder, file_path)
@@ -112,17 +116,23 @@ class Data():
         else:
             print("%s already updated" % (self.file_path))
 
+
 if __name__ == '__main__':
-    time_intervals = ["15m", "1h", "1d"]
+    time_intervals = ["15m", "1h", "1d"]  # Choose time intervals of data you want to get. Options are "1m", "5m", "15m", "30m", "1h", "1d", etc.
     for ti in time_intervals:
         binance_symbols = Symbols(ti)
         binance_symbols.getSymbols(overwrite=False)
 
-        sTime = time.time()
-        l = len(binance_symbols.symbols)
-        for i, symbol in enumerate(binance_symbols.symbols):
-            eTime = datetime.timedelta(seconds=time.time()- sTime)
-            print("%s/%s | %s | " % (i+1, l, str(eTime).split(".")[0]), end='')
-            data = Data(symbol, ti)
-            data.getData()
-            data = None
+        # 1. Uncomment below after running and getting binance_symbols. A file should be created in chart_data/crypto/<time interval>/ called -Binance Symbols.csv.
+        # 2. In -Binance Symbols, remove any charts you don't want. Don't format
+        # 3. Uncomment below and run. Warning: It takes a while, especially 1m and 5m so I would suggest working with 1d or 1h first.
+        # 4. It will automatically update if you run the program.
+
+        # sTime = time.time()
+        # l = len(binance_symbols.symbols)
+        # for i, symbol in enumerate(binance_symbols.symbols):
+        #     eTime = datetime.timedelta(seconds=time.time()- sTime)
+        #     print("%s/%s | %s | " % (i+1, l, str(eTime).split(".")[0]), end='')
+        #     data = Data(symbol, ti)
+        #     data.getData()
+        #     data = None
