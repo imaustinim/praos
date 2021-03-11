@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>btgym.monitor package &mdash; BTGym 0.0.7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="BTGym 0.0.7 documentation" href="index.html"/>
+        <link rel="next" title="btgym.rendering package" href="btgym.rendering.html"/>
+        <link rel="prev" title="btgym.strategy package" href="btgym.strategy.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> BTGym
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#quickstart">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#environment-engine-description">Environment engine description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#data-flow-structure">Data flow structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#a3c-framework-description">A3C framework description</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="btgym.envs.html">btgym.envs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="btgym.html">btgym.dataserver module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="btgym.html#module-btgym.server">btgym.server module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="btgym.html#module-btgym.spaces">btgym.spaces module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="btgym.strategy.html">btgym.strategy package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">btgym.monitor package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-btgym.monitor.tensorboard">btgym.monitor.tensorboard module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-btgym.monitor.tensorboard2">btgym.monitor.tensorboard2 module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="btgym.rendering.html">btgym.rendering package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="btgym.datafeed.html">btgym.datafeed package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="btgym.algorithms.html">btgym.algorithms package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="btgym.research.html">btgym.research package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BTGym</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>btgym.monitor package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/btgym.monitor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="btgym-monitor-package">
+<h1>btgym.monitor package<a class="headerlink" href="#btgym-monitor-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-btgym.monitor.tensorboard">
+<span id="btgym-monitor-tensorboard-module"></span><h2>btgym.monitor.tensorboard module<a class="headerlink" href="#module-btgym.monitor.tensorboard" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="btgym.monitor.tensorboard.BTgymMonitor">
+<em class="property">class </em><code class="descclassname">btgym.monitor.tensorboard.</code><code class="descname">BTgymMonitor</code><span class="sig-paren">(</span><em>scalars={}</em>, <em>images={}</em>, <em>histograms={}</em>, <em>text={}</em>, <em>logdir='./tb_log'</em>, <em>subdir='/'</em>, <em>purge_previous=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard.html#BTgymMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard.BTgymMonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Light tensorflow ‘summaries’ wrapper for convenient tensorboard logging.</p>
+<p>Monitor parameters:
+Sets of names for every value category: scalars, images, histograms ant text.
+logdir - tensorboard log directory;
+subdir - this monitor log subdirectory;
+port - localhost webpage addr to look at;
+reload - web page refresh rate.
+purge_previous - delete previous logs in logdir/subdir if found.</p>
+<dl class="method">
+<dt id="btgym.monitor.tensorboard.BTgymMonitor.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>feed_dict</em>, <em>global_step</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard.html#BTgymMonitor.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard.BTgymMonitor.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates monitor with provided data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="btgym.monitor.tensorboard.Tensorboard">
+<em class="property">class </em><code class="descclassname">btgym.monitor.tensorboard.</code><code class="descname">Tensorboard</code><span class="sig-paren">(</span><em>logdir='./btgym_log'</em>, <em>port=6006</em>, <em>reload=30</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard.html#Tensorboard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard.Tensorboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility class to start/stop tensorboard server.</p>
+<dl class="method">
+<dt id="btgym.monitor.tensorboard.Tensorboard.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard.html#Tensorboard.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard.Tensorboard.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches Tensorboard app.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="btgym.monitor.tensorboard.Tensorboard.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard.html#Tensorboard.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard.Tensorboard.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes tensorboard server.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-btgym.monitor.tensorboard2">
+<span id="btgym-monitor-tensorboard2-module"></span><h2>btgym.monitor.tensorboard2 module<a class="headerlink" href="#module-btgym.monitor.tensorboard2" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="btgym.monitor.tensorboard2.BTgymMonitor2">
+<em class="property">class </em><code class="descclassname">btgym.monitor.tensorboard2.</code><code class="descname">BTgymMonitor2</code><span class="sig-paren">(</span><em>scalars={}</em>, <em>images={}</em>, <em>histograms={}</em>, <em>text={}</em>, <em>logdir='./tb_log'</em>, <em>subdir='/'</em>, <em>purge_previous=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard2.html#BTgymMonitor2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard2.BTgymMonitor2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Light tensorflow ‘summaries’ wrapper for convenient tensorboard logging.</p>
+<p>Monitor parameters:
+Sets of names for every value category: scalars, images, histograms ant text.
+logdir - tensorboard log directory;
+subdir - this monitor log subdirectory;
+port - localhost webpage addr to look at;
+reload - web page refresh rate.
+purge_previous - delete previous logs in logdir/subdir if found.</p>
+<dl class="method">
+<dt id="btgym.monitor.tensorboard2.BTgymMonitor2.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>sess</em>, <em>feed_dict</em>, <em>global_step</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard2.html#BTgymMonitor2.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard2.BTgymMonitor2.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates monitor with provided data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="btgym.monitor.tensorboard2.Tensorboard">
+<em class="property">class </em><code class="descclassname">btgym.monitor.tensorboard2.</code><code class="descname">Tensorboard</code><span class="sig-paren">(</span><em>logdir='./btgym_log'</em>, <em>port=6006</em>, <em>reload=30</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard2.html#Tensorboard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard2.Tensorboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility class to start/stop tensorboard server.</p>
+<dl class="method">
+<dt id="btgym.monitor.tensorboard2.Tensorboard.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard2.html#Tensorboard.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard2.Tensorboard.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches Tensorboard app.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="btgym.monitor.tensorboard2.Tensorboard.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/btgym/monitor/tensorboard2.html#Tensorboard.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#btgym.monitor.tensorboard2.Tensorboard.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes tensorboard server.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="btgym.rendering.html" class="btn btn-neutral float-right" title="btgym.rendering package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="btgym.strategy.html" class="btn btn-neutral" title="btgym.strategy package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, 2018, Andrew Muzikin.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
