@@ -220,3 +220,5 @@ class Reversal(Setup_Binance):
                     self.hold = 1
 
         self.idx += 1
+
+# Copy template class "Reversal" to create strategy

@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     cerebro.adddata(data)
 
-    strat = Strategies.Crypto_Strategy
+    strat = Strategies.Reversal  # choose strategy from Strategies.py
     cerebro.addstrategy(strat)
     start_value = cerebro.broker.getvalue()
 
