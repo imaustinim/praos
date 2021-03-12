@@ -1,4 +1,4 @@
-# Praos - Composed and Focused
+# Praos - Develop and Backtest Strategies
 
 ## Introduction
 Praos' goal is to help users backtest trade strategies using the binance api and backtrader. It's recommended that amateur traders backtest strategies for 6 - 12 months before trading.
