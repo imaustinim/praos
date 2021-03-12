@@ -44,6 +44,18 @@ API_SECRET = <secret_key>
 4. Create a strategy using the Strategies file.
 5. Read the instruction on the BackTrader file and backtest strategy. (Should already be connected to the Strategies file)
 
+## Photos
+
+### Data
+![data](imgs/data.png)
+
+### Console
+![console](imgs/console.png)
+
+### Plot
+![plot](imgs/plot.png)
+
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

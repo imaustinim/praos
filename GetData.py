@@ -1,13 +1,13 @@
+import pandas as pd
+import pytz
+import time
+import datetime
+from binance.client import Client
+import talib
+import regex
 import os
 import csv
-import regex
-import sys
-import talib
-from binance.client import Client
-import datetime
-import time
-import pytz
-import pandas as pd
+
 
 API_KEY = os.environ['API_KEY']
 API_SECRET = os.environ['API_SECRET']
